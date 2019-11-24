@@ -37,7 +37,7 @@ Before running the notebook, please unzip each of the Winzip archives and place 
 
 ## Results <a name="results"></a>
 The main findings of the code has been mentioned in Jupyter notebook and corresponding HTML file.
-Same findings have been explained at the post [here](https://medium.com/@tanmoybanerjee2003/what-technologies-and-languages-should-we-learn-and-help-us-earn-in-2020-2adfa5716a5c)
+Same findings have been explained at the **Medium blog post** [here](https://medium.com/@tanmoybanerjee2003/what-technologies-and-languages-should-we-learn-and-help-us-earn-in-2020-2adfa5716a5c)
 
 ## Licensing, Authors and Acknowledgements<a name="licensing"></a>
 License for the data and related information can be found at the Stackoverflow link available [here](https://insights.stackoverflow.com/survey).
