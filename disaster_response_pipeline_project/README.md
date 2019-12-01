@@ -28,8 +28,7 @@ This is an Udacity Nanodegree project. In this project, a web-application is bui
 - 'models/'
   - 'train_classifier.py' - The NLP and ML pipeline script.
 
-    
- - 'preparation/' 
+- 'preparation/' 
   - 'ETL Pipeline Preparation.ipynb'  -  Jupyter notebook for ETL preparation
   - 'ETL Pipeline Preparation.html'  -  HTML version of Jupyter notebook for ETL preparation
   - 'ML Pipeline Preparation.ipynb'  -  Jupyter notebook for ML preparation
