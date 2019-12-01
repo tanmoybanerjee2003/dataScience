@@ -124,7 +124,7 @@ df = pd.read_sql_table('DisasterResponse', engine)
 model = joblib.load("../models/disaster_resp_classifier.pkl")
 
 # create graphs
-count_of_categories = 10
+count_of_categories = 5
 msgs_per_cat_graph, top_categories = messages_by_categories(df, count_of_categories)
 cats_per_genre_graph = categories_per_genre(df, top_categories, count_of_categories)
 
