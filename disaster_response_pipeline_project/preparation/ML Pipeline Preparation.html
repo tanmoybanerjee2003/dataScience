@@ -13182,7 +13182,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import libraries</span>
@@ -13200,8 +13200,12 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">precision_recall_fscore_support</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># to ignore warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13495,7 +13499,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
@@ -13512,93 +13516,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\multiclass.py:76: UserWarning: Label not 0 is present in all training examples.
-  str(classes[c]))
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13631,13 +13549,30 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">display_results</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">category_names</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">category_names</span><span class="p">)):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Category name:&quot;</span><span class="p">,</span> <span class="n">category_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get results and add them to a dataframe.</span>
+<span class="k">def</span> <span class="nf">compute_results</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="s1">&#39;f_score&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">])</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">y_test</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f_score</span><span class="p">,</span> <span class="n">support</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="n">category</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="n">num</span><span class="p">],</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;f_score&#39;</span><span class="p">,</span> <span class="n">f_score</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">aggregated_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Aggregated_Result_type&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Aggregated_Result_type&#39;</span><span class="p">:</span> <span class="s1">&#39;f_score&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;f_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">aggregated_results</span> <span class="o">=</span> <span class="n">aggregated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Aggregated_Result_type&#39;</span><span class="p">:</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">aggregated_results</span> <span class="o">=</span> <span class="n">aggregated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Aggregated_Result_type&#39;</span><span class="p">:</span> <span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">aggregated_results</span> <span class="o">=</span> <span class="n">aggregated_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">aggregated_results</span>
 </pre></div>
 
     </div>
@@ -13647,11 +13582,10 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">category_names</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 
     </div>
@@ -13661,10 +13595,11 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_results</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">category_names</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="p">,</span> <span class="n">aggregated_results</span> <span class="o">=</span> <span class="n">compute_results</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
+<span class="n">aggregated_results</span>
 </pre></div>
 
     </div>
@@ -13677,394 +13612,365 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Category name: related
-              precision    recall  f1-score   support
-
-           0       0.72      0.43      0.54      1246
-           1       0.84      0.94      0.89      3968
-           2       0.18      0.37      0.24        30
-
-   micro avg       0.82      0.82      0.82      5244
-   macro avg       0.58      0.58      0.56      5244
-weighted avg       0.81      0.82      0.80      5244
-
-Category name: request
-              precision    recall  f1-score   support
-
-           0       0.89      0.98      0.93      4324
-           1       0.81      0.42      0.55       920
-
-   micro avg       0.88      0.88      0.88      5244
-   macro avg       0.85      0.70      0.74      5244
-weighted avg       0.87      0.88      0.86      5244
-
-Category name: offer
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5223
-           1       0.00      0.00      0.00        21
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      1.00      0.99      5244
-
-Category name: aid_related
-              precision    recall  f1-score   support
-
-           0       0.76      0.86      0.81      3067
-           1       0.76      0.61      0.68      2177
-
-   micro avg       0.76      0.76      0.76      5244
-   macro avg       0.76      0.74      0.74      5244
-weighted avg       0.76      0.76      0.75      5244
-
-Category name: medical_help
-              precision    recall  f1-score   support
-
-           0       0.93      0.99      0.96      4836
-           1       0.52      0.08      0.14       408
-
-   micro avg       0.92      0.92      0.92      5244
-   macro avg       0.72      0.54      0.55      5244
-weighted avg       0.90      0.92      0.90      5244
-
-Category name: medical_products
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4967
-           1       0.74      0.09      0.17       277
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.85      0.55      0.57      5244
-weighted avg       0.94      0.95      0.93      5244
-
-Category name: search_and_rescue
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.99      5095
-           1       0.53      0.05      0.10       149
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.75      0.53      0.54      5244
-weighted avg       0.96      0.97      0.96      5244
-
-Category name: security
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5161
-           1       0.00      0.00      0.00        83
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.97      0.98      0.98      5244
-
-Category name: military
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.98      5082
-           1       0.62      0.09      0.16       162
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.80      0.55      0.57      5244
-weighted avg       0.96      0.97      0.96      5244
-
-Category name: child_alone
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5244
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       1.00      1.00      1.00      5244
-weighted avg       1.00      1.00      1.00      5244
-
-Category name: water
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4910
-           1       0.80      0.22      0.35       334
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.87      0.61      0.66      5244
-weighted avg       0.94      0.95      0.93      5244
-
-Category name: food
-              precision    recall  f1-score   support
-
-           0       0.93      0.99      0.96      4668
-           1       0.84      0.40      0.54       576
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.88      0.69      0.75      5244
-weighted avg       0.92      0.93      0.91      5244
-
-Category name: shelter
-              precision    recall  f1-score   support
-
-           0       0.93      1.00      0.96      4761
-           1       0.87      0.23      0.36       483
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.90      0.61      0.66      5244
-weighted avg       0.92      0.93      0.91      5244
-
-Category name: clothing
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5171
-           1       0.83      0.14      0.24        73
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.91      0.57      0.61      5244
-weighted avg       0.99      0.99      0.98      5244
-
-Category name: money
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5119
-           1       0.78      0.06      0.10       125
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.88      0.53      0.55      5244
-weighted avg       0.97      0.98      0.97      5244
-
-Category name: missing_people
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      1.00      5192
-           1       0.67      0.04      0.07        52
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.83      0.52      0.53      5244
-weighted avg       0.99      0.99      0.99      5244
-
-Category name: refugees
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.98      5067
-           1       0.67      0.02      0.04       177
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.82      0.51      0.51      5244
-weighted avg       0.96      0.97      0.95      5244
-
-Category name: death
-              precision    recall  f1-score   support
-
-           0       0.96      1.00      0.98      5008
-           1       0.84      0.21      0.33       236
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.90      0.60      0.66      5244
-weighted avg       0.96      0.96      0.95      5244
-
-Category name: other_aid
-              precision    recall  f1-score   support
-
-           0       0.88      0.99      0.93      4575
-           1       0.59      0.07      0.13       669
-
-   micro avg       0.88      0.88      0.88      5244
-   macro avg       0.74      0.53      0.53      5244
-weighted avg       0.84      0.88      0.83      5244
-
-Category name: infrastructure_related
-              precision    recall  f1-score   support
-
-           0       0.93      1.00      0.96      4891
-           1       0.22      0.01      0.01       353
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.58      0.50      0.49      5244
-weighted avg       0.89      0.93      0.90      5244
-
-Category name: transport
-              precision    recall  f1-score   support
-
-           0       0.96      1.00      0.98      5021
-           1       0.62      0.09      0.16       223
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.79      0.54      0.57      5244
-weighted avg       0.95      0.96      0.94      5244
-
-Category name: buildings
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.98      4965
-           1       0.80      0.13      0.23       279
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.88      0.57      0.60      5244
-weighted avg       0.95      0.95      0.94      5244
-
-Category name: electricity
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5136
-           1       0.56      0.05      0.09       108
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.77      0.52      0.54      5244
-weighted avg       0.97      0.98      0.97      5244
-
-Category name: tools
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      1.00      5211
-           1       0.00      0.00      0.00        33
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      0.99      0.99      5244
-
-Category name: hospitals
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5187
-           1       0.00      0.00      0.00        57
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.98      0.99      0.98      5244
-
-Category name: shops
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5225
-           1       0.00      0.00      0.00        19
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      1.00      0.99      5244
-
-Category name: aid_centers
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5176
-           1       0.00      0.00      0.00        68
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.97      0.99      0.98      5244
-
-Category name: other_infrastructure
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.98      5006
-           1       0.25      0.01      0.02       238
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.60      0.50      0.50      5244
-weighted avg       0.92      0.95      0.93      5244
-
-Category name: weather_related
-</pre>
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated_Result_type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>f_score</td>
+      <td>0.932768</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>precision</td>
+      <td>0.935589</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>recall</td>
+      <td>0.945223</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>D:\anaconda3\lib\site-packages\sklearn\metrics\classification.py:1143: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
-  &#39;precision&#39;, &#39;predicted&#39;, average, warn_for)
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Category</th>
+      <th>f_score</th>
+      <th>precision</th>
+      <th>recall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>related</td>
+      <td>0.804445</td>
+      <td>0.812388</td>
+      <td>0.820557</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>request</td>
+      <td>0.870921</td>
+      <td>0.880658</td>
+      <td>0.885774</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>offer</td>
+      <td>0.993997</td>
+      <td>0.992007</td>
+      <td>0.995995</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>aid_related</td>
+      <td>0.760165</td>
+      <td>0.76583</td>
+      <td>0.765256</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>medical_help</td>
+      <td>0.895936</td>
+      <td>0.892395</td>
+      <td>0.921243</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>medical_products</td>
+      <td>0.934928</td>
+      <td>0.94469</td>
+      <td>0.951945</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>search_and_rescue</td>
+      <td>0.962921</td>
+      <td>0.963689</td>
+      <td>0.97254</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>security</td>
+      <td>0.976394</td>
+      <td>0.971934</td>
+      <td>0.9836</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>military</td>
+      <td>0.958375</td>
+      <td>0.958179</td>
+      <td>0.969489</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>child_alone</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>water</td>
+      <td>0.93766</td>
+      <td>0.945138</td>
+      <td>0.950038</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>food</td>
+      <td>0.922198</td>
+      <td>0.926245</td>
+      <td>0.931159</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>shelter</td>
+      <td>0.916664</td>
+      <td>0.926739</td>
+      <td>0.931541</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>clothing</td>
+      <td>0.981244</td>
+      <td>0.981047</td>
+      <td>0.98627</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>money</td>
+      <td>0.966688</td>
+      <td>0.977641</td>
+      <td>0.977117</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>missing_people</td>
+      <td>0.985517</td>
+      <td>0.985409</td>
+      <td>0.990084</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>refugees</td>
+      <td>0.951765</td>
+      <td>0.958622</td>
+      <td>0.966819</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>death</td>
+      <td>0.940372</td>
+      <td>0.955235</td>
+      <td>0.957857</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>other_aid</td>
+      <td>0.823844</td>
+      <td>0.829961</td>
+      <td>0.872616</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>infrastructure_related</td>
+      <td>0.900259</td>
+      <td>0.882365</td>
+      <td>0.93135</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>transport</td>
+      <td>0.942868</td>
+      <td>0.943004</td>
+      <td>0.958047</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>buildings</td>
+      <td>0.934637</td>
+      <td>0.946333</td>
+      <td>0.951945</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>electricity</td>
+      <td>0.970503</td>
+      <td>0.975226</td>
+      <td>0.979786</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>tools</td>
+      <td>0.990571</td>
+      <td>0.987454</td>
+      <td>0.993707</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>hospitals</td>
+      <td>0.984194</td>
+      <td>0.989435</td>
+      <td>0.989321</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>shops</td>
+      <td>0.994569</td>
+      <td>0.992767</td>
+      <td>0.996377</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>aid_centers</td>
+      <td>0.980592</td>
+      <td>0.974234</td>
+      <td>0.987033</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>other_infrastructure</td>
+      <td>0.932435</td>
+      <td>0.918986</td>
+      <td>0.953852</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>weather_related</td>
+      <td>0.852348</td>
+      <td>0.856594</td>
+      <td>0.859077</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>floods</td>
+      <td>0.932387</td>
+      <td>0.93832</td>
+      <td>0.943364</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>storm</td>
+      <td>0.918132</td>
+      <td>0.92255</td>
+      <td>0.929825</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>fire</td>
+      <td>0.980952</td>
+      <td>0.987201</td>
+      <td>0.987033</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>earthquake</td>
+      <td>0.955606</td>
+      <td>0.955453</td>
+      <td>0.957857</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>cold</td>
+      <td>0.97495</td>
+      <td>0.979256</td>
+      <td>0.982075</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>other_weather</td>
+      <td>0.922806</td>
+      <td>0.924752</td>
+      <td>0.946034</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>direct_report</td>
+      <td>0.827813</td>
+      <td>0.839468</td>
+      <td>0.851449</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>              precision    recall  f1-score   support
-
-           0       0.86      0.95      0.91      3773
-           1       0.84      0.61      0.71      1471
-
-   micro avg       0.86      0.86      0.86      5244
-   macro avg       0.85      0.78      0.81      5244
-weighted avg       0.86      0.86      0.85      5244
-
-Category name: floods
-              precision    recall  f1-score   support
-
-           0       0.94      1.00      0.97      4831
-           1       0.82      0.24      0.37       413
-
-   micro avg       0.94      0.94      0.94      5244
-   macro avg       0.88      0.62      0.67      5244
-weighted avg       0.93      0.94      0.92      5244
-
-Category name: storm
-              precision    recall  f1-score   support
-
-           0       0.94      0.99      0.96      4735
-           1       0.77      0.44      0.56       509
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.86      0.71      0.76      5244
-weighted avg       0.93      0.93      0.92      5244
-
-Category name: fire
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5174
-           1       0.50      0.01      0.03        70
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.74      0.51      0.51      5244
-weighted avg       0.98      0.99      0.98      5244
-
-Category name: earthquake
-              precision    recall  f1-score   support
-
-           0       0.97      0.99      0.98      4763
-           1       0.88      0.72      0.79       481
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.92      0.85      0.88      5244
-weighted avg       0.96      0.96      0.96      5244
-
-Category name: cold
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5143
-           1       0.75      0.12      0.21       101
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.87      0.56      0.60      5244
-weighted avg       0.98      0.98      0.98      5244
-
-Category name: other_weather
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4960
-           1       0.40      0.03      0.05       284
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.67      0.51      0.51      5244
-weighted avg       0.92      0.95      0.92      5244
-
-Category name: direct_report
-              precision    recall  f1-score   support
-
-           0       0.86      0.97      0.91      4242
-           1       0.75      0.33      0.46      1002
-
-   micro avg       0.85      0.85      0.85      5244
-   macro avg       0.81      0.65      0.69      5244
-weighted avg       0.84      0.85      0.83      5244
-
-</pre>
-</div>
 </div>
 
 </div>
@@ -14081,7 +13987,7 @@ weighted avg       0.84      0.85      0.83      5244
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
@@ -14108,7 +14014,7 @@ weighted avg       0.84      0.85      0.83      5244
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
@@ -14128,19 +14034,6 @@ weighted avg       0.84      0.85      0.83      5244
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>D:\anaconda3\lib\site-packages\sklearn\model_selection\_split.py:2053: FutureWarning: You should specify a value for &#39;cv&#39; instead of relying on the default value. The default value will change from 3 to 5 in version 0.22.
-  warnings.warn(CV_WARNING, FutureWarning)
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 4 concurrent workers.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fitting 3 folds for each of 4 candidates, totalling 12 fits
 </pre>
@@ -14153,83 +14046,8 @@ weighted avg       0.84      0.85      0.83      5244
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=-1)]: Done  12 out of  12 | elapsed: 50.8min finished
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\multiclass.py:76: UserWarning: Label not 0 is present in all training examples.
-  str(classes[c]))
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
-D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-  &#34;10 in version 0.20 to 100 in 0.22.&#34;, FutureWarning)
+<pre>[Parallel(n_jobs=-1)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  12 out of  12 | elapsed: 54.1min finished
 </pre>
 </div>
 </div>
@@ -14251,7 +14069,7 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y_pred</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -14264,10 +14082,11 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_results</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">category_names</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_results</span><span class="p">,</span> <span class="n">new_aggregated_results</span> <span class="o">=</span> <span class="n">compute_results</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
+<span class="n">new_aggregated_results</span>
 </pre></div>
 
     </div>
@@ -14280,394 +14099,54 @@ D:\anaconda3\lib\site-packages\sklearn\ensemble\forest.py:246: FutureWarning: Th
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Category name: related
-              precision    recall  f1-score   support
-
-           0       0.69      0.44      0.54      1246
-           1       0.84      0.93      0.88      3968
-           2       0.31      0.40      0.35        30
-
-   micro avg       0.81      0.81      0.81      5244
-   macro avg       0.61      0.59      0.59      5244
-weighted avg       0.80      0.81      0.80      5244
-
-Category name: request
-              precision    recall  f1-score   support
-
-           0       0.89      0.98      0.93      4324
-           1       0.82      0.43      0.57       920
-
-   micro avg       0.88      0.88      0.88      5244
-   macro avg       0.86      0.71      0.75      5244
-weighted avg       0.88      0.88      0.87      5244
-
-Category name: offer
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5223
-           1       0.00      0.00      0.00        21
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      1.00      0.99      5244
-
-Category name: aid_related
-              precision    recall  f1-score   support
-
-           0       0.74      0.88      0.81      3067
-           1       0.77      0.57      0.66      2177
-
-   micro avg       0.75      0.75      0.75      5244
-   macro avg       0.76      0.73      0.73      5244
-weighted avg       0.76      0.75      0.75      5244
-
-Category name: medical_help
-              precision    recall  f1-score   support
-
-           0       0.93      1.00      0.96      4836
-           1       0.63      0.09      0.16       408
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.78      0.54      0.56      5244
-weighted avg       0.91      0.93      0.90      5244
-
-Category name: medical_products
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.98      4967
-           1       0.77      0.12      0.21       277
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.86      0.56      0.59      5244
-weighted avg       0.94      0.95      0.93      5244
-
-Category name: search_and_rescue
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.99      5095
-           1       0.55      0.04      0.07       149
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.76      0.52      0.53      5244
-weighted avg       0.96      0.97      0.96      5244
-
-Category name: security
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5161
-           1       0.00      0.00      0.00        83
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.97      0.98      0.98      5244
-
-Category name: military
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.98      5082
-           1       0.50      0.05      0.09       162
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.74      0.52      0.54      5244
-weighted avg       0.96      0.97      0.96      5244
-
-Category name: child_alone
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5244
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       1.00      1.00      1.00      5244
-weighted avg       1.00      1.00      1.00      5244
-
-Category name: water
-              precision    recall  f1-score   support
-
-           0       0.96      1.00      0.98      4910
-           1       0.90      0.43      0.58       334
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.93      0.71      0.78      5244
-weighted avg       0.96      0.96      0.95      5244
-
-Category name: food
-              precision    recall  f1-score   support
-
-           0       0.94      0.99      0.96      4668
-           1       0.84      0.45      0.59       576
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.89      0.72      0.77      5244
-weighted avg       0.93      0.93      0.92      5244
-
-Category name: shelter
-              precision    recall  f1-score   support
-
-           0       0.93      1.00      0.96      4761
-           1       0.89      0.29      0.44       483
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.91      0.65      0.70      5244
-weighted avg       0.93      0.93      0.92      5244
-
-Category name: clothing
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5171
-           1       0.75      0.21      0.32        73
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.87      0.60      0.66      5244
-weighted avg       0.99      0.99      0.98      5244
-
-Category name: money
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5119
-           1       1.00      0.05      0.09       125
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.99      0.52      0.54      5244
-weighted avg       0.98      0.98      0.97      5244
-
-Category name: missing_people
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      1.00      5192
-           1       1.00      0.02      0.04        52
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       1.00      0.51      0.52      5244
-weighted avg       0.99      0.99      0.99      5244
-
-Category name: refugees
-              precision    recall  f1-score   support
-
-           0       0.97      1.00      0.98      5067
-           1       0.62      0.03      0.05       177
-
-   micro avg       0.97      0.97      0.97      5244
-   macro avg       0.80      0.51      0.52      5244
-weighted avg       0.96      0.97      0.95      5244
-
-Category name: death
-              precision    recall  f1-score   support
-
-           0       0.96      1.00      0.98      5008
-           1       0.75      0.18      0.29       236
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.86      0.59      0.64      5244
-weighted avg       0.95      0.96      0.95      5244
-
-Category name: other_aid
-              precision    recall  f1-score   support
-
-           0       0.88      0.99      0.93      4575
-           1       0.59      0.05      0.09       669
-
-   micro avg       0.87      0.87      0.87      5244
-   macro avg       0.73      0.52      0.51      5244
-weighted avg       0.84      0.87      0.83      5244
-
-Category name: infrastructure_related
-              precision    recall  f1-score   support
-
-           0       0.93      1.00      0.96      4891
-           1       0.38      0.01      0.02       353
-
-   micro avg       0.93      0.93      0.93      5244
-   macro avg       0.65      0.50      0.49      5244
-weighted avg       0.90      0.93      0.90      5244
-
-Category name: transport
-              precision    recall  f1-score   support
-
-           0       0.96      1.00      0.98      5021
-           1       0.69      0.08      0.14       223
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.83      0.54      0.56      5244
-weighted avg       0.95      0.96      0.94      5244
-
-Category name: buildings
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4965
-           1       0.86      0.09      0.16       279
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.91      0.54      0.57      5244
-weighted avg       0.95      0.95      0.93      5244
-
-Category name: electricity
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5136
-           1       0.90      0.08      0.15       108
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.94      0.54      0.57      5244
-weighted avg       0.98      0.98      0.97      5244
-
-Category name: tools
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      1.00      5211
-           1       0.00      0.00      0.00        33
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      0.99      0.99      5244
-
-Category name: hospitals
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5187
-           1       1.00      0.02      0.03        57
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.99      0.51      0.51      5244
-weighted avg       0.99      0.99      0.98      5244
-
-Category name: shops
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00      5225
-           1       0.00      0.00      0.00        19
-
-   micro avg       1.00      1.00      1.00      5244
-   macro avg       0.50      0.50      0.50      5244
-weighted avg       0.99      1.00      0.99      5244
-
-Category name: aid_centers
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5176
-           1       0.00      0.00      0.00        68
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.97      0.99      0.98      5244
-
-Category name: other_infrastructure
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.98      5006
-           1       0.00      0.00      0.00       238
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.48      0.50      0.49      5244
-weighted avg       0.91      0.95      0.93      5244
-
-Category name: weather_related
-              precision    recall  f1-score   support
-
-           0       0.84      0.95      0.89      3773
-           1       0.81      0.53      0.64      1471
-
-   micro avg       0.83      0.83      0.83      5244
-   macro avg       0.83      0.74      0.77      5244
-weighted avg       0.83      0.83      0.82      5244
-
-Category name: floods
-</pre>
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated_Result_type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>f_score</td>
+      <td>0.928979</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>precision</td>
+      <td>0.932781</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>recall</td>
+      <td>0.942681</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>D:\anaconda3\lib\site-packages\sklearn\metrics\classification.py:1143: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
-  &#39;precision&#39;, &#39;predicted&#39;, average, warn_for)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4831
-           1       0.86      0.32      0.47       413
-
-   micro avg       0.94      0.94      0.94      5244
-   macro avg       0.90      0.66      0.72      5244
-weighted avg       0.94      0.94      0.93      5244
-
-Category name: storm
-              precision    recall  f1-score   support
-
-           0       0.93      0.99      0.96      4735
-           1       0.76      0.29      0.42       509
-
-   micro avg       0.92      0.92      0.92      5244
-   macro avg       0.85      0.64      0.69      5244
-weighted avg       0.91      0.92      0.91      5244
-
-Category name: fire
-              precision    recall  f1-score   support
-
-           0       0.99      1.00      0.99      5174
-           1       0.00      0.00      0.00        70
-
-   micro avg       0.99      0.99      0.99      5244
-   macro avg       0.49      0.50      0.50      5244
-weighted avg       0.97      0.99      0.98      5244
-
-Category name: earthquake
-              precision    recall  f1-score   support
-
-           0       0.97      0.99      0.98      4763
-           1       0.85      0.72      0.78       481
-
-   micro avg       0.96      0.96      0.96      5244
-   macro avg       0.91      0.85      0.88      5244
-weighted avg       0.96      0.96      0.96      5244
-
-Category name: cold
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      5143
-           1       0.73      0.08      0.14       101
-
-   micro avg       0.98      0.98      0.98      5244
-   macro avg       0.85      0.54      0.57      5244
-weighted avg       0.98      0.98      0.97      5244
-
-Category name: other_weather
-              precision    recall  f1-score   support
-
-           0       0.95      1.00      0.97      4960
-           1       0.59      0.04      0.07       284
-
-   micro avg       0.95      0.95      0.95      5244
-   macro avg       0.77      0.52      0.52      5244
-weighted avg       0.93      0.95      0.92      5244
-
-Category name: direct_report
-              precision    recall  f1-score   support
-
-           0       0.86      0.97      0.91      4242
-           1       0.74      0.33      0.46      1002
-
-   micro avg       0.85      0.85      0.85      5244
-   macro avg       0.80      0.65      0.69      5244
-weighted avg       0.84      0.85      0.83      5244
-
-</pre>
-</div>
 </div>
 
 </div>
@@ -14707,7 +14186,7 @@ weighted avg       0.84      0.85      0.83      5244
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cv</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;disaster_resp_classifier.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span>
