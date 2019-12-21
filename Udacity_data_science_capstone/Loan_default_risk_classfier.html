@@ -15670,7 +15670,7 @@ Name: TARGET, dtype: float64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We shall use MinMaxScaler to scale all features in train and test set.</p>
+<p>We shall use MinMaxScaler to scale all features in the data.</p>
 
 </div>
 </div>
@@ -18409,7 +18409,7 @@ Optimal number of estimators: 30.
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="6.5.3-Algorithm">6.5.3 Algorithm<a class="anchor-link" href="#6.5.3-Algorithm">&#182;</a></h3><p>The process of choosing the set of hyperparameter depends on the algorithm. In this notebook, following two algorithms will be used:</p>
 <ul>
-<li><strong>Grid search</strong>: The 'domain' contains the hyperparameter-grid. The grid search method tries all combinations of values in the grid, evaluate each combination of hyperparameter with the objective function and record the set along with the score in the 'record history'. The 'record history' is sorted according to the score.<ul>
+<li><strong>Grid search</strong>: The 'domain' contains the hyperparameter-grid. The grid search method tries all combinations of values in the grid, evaluates each combination of hyperparameter with the objective function and records the set along with the score in the 'record history'. The 'record history' is sorted according to the score.<ul>
 <li>Limitations:<ul>
 <li>Grid search is extremely computationally expensive because we have to perform cross validation with every single combination of hyperparameters in the grid.</li>
 <li>Result depends on the choice of the grid. The algorithm only chooses best combination of values from the set of available values in the hyperparameter-grid. </li>
@@ -18908,10 +18908,31 @@ After tuning, ROC AUC score of the model on the test set, is 0.68883.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Summary-and-conclusion">Summary and conclusion<a class="anchor-link" href="#Summary-and-conclusion">&#182;</a></h1><p>In this notebook, we have studied various factors related to a financial loan, which governs the risk associated with the repayment in time.</p>
+<h1 id="Summary-and-Reflection">Summary and Reflection<a class="anchor-link" href="#Summary-and-Reflection">&#182;</a></h1><p>In this notebook, we have studied various factors related to a financial loan, which governs the risk associated with the repayment in time.</p>
 <p>We have analyzed the data, rectified few anomalies, imputed missing values, encoded categorical features and finally reduced the dimension of the data using PCA. We also have observed 'class imbalance problem' related to the data.</p>
-<p>We have evaluated several classification models and have chosen light GBM classifier for classifying the defaulting risk. We have also chosen ROC AUC  metric for measuring the performance of the models. Chosen model has scored around 0.7 which is not that great. Mostly, it was the data which need to be more balanced across output labels.</p>
+<p>We have evaluated several classification models and have chosen light GBM classifier for classifying the defaulting risk. We have also chosen ROC AUC  metric for measuring the performance of the models. Chosen model has scored around 0.7 which is not that bad. Mostly, it was the data which need to be more balanced across output labels.</p>
 <p>Finally, we have demonstrated how chosen model can be tuned to optimize its performance. Though, we have some limitations in resources, but tuning processes as shown, can be followed to optimize LGBMClassifier in real-world scenario.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Key-learnings">Key learnings<a class="anchor-link" href="#Key-learnings">&#182;</a></h2><ul>
+<li>Finding right data is key to success of any datascience problem.</li>
+<li>Finding right model is next important aspect.</li>
+<li>Companies investing on datascience should spend on proper infrastructure, data governance and data strategies</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-could-have-been-better">What could have been better<a class="anchor-link" href="#What-could-have-been-better">&#182;</a></h2><p>There are techniques available to tackle 'class imbalance' problem. For example, data can be sampled in such a manner such that misproportion in data can be reduced to some extent.</p>
+<p>A better machine with higher computational power will be able to perform better optimization of the model. That way, coresponding ROC AUC score could have been better.</p>
 
 </div>
 </div>

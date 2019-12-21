@@ -12,11 +12,12 @@ This project is part of Udacity Data Scientist Nanodegree program.
 
 
 ## Project Motivation <a name="motivation"></a>
-This is an Udacity Nanodegree project. Purpose of the project is to build a supervised binary classifier to predict risk associated with loans.</br>
-As part of the project,
-1. Data related to loan applications from [Home Credit](http://www.homecredit.net/) has been analyzed, sanitized, encoded, scaled
-2. A number of classifiers have been evaluated
-3. Best performed classifier has been optimized further in multiple ways</br>
+This is an Udacity Nanodegree project. Purpose of the project is to build a supervised binary classifier to predict risk associated with loans.
+</br></br>As part of the project,
+1. Data related to loan applications from [Home Credit](http://www.homecredit.net/) was analyzed, sanitized, encoded, scaled
+2. A number of classifiers were evaluated
+3. One classifier has been selected based on chosen metric.
+4. Optimization techniques were demonstrated on selected classifier</br>
 
 
 ## File Description <a name="files"></a>
@@ -34,7 +35,7 @@ As part of the project,
 
 ## Results <a name="results"></a>
 The main findings of the code has been mentioned in Jupyter notebook and corresponding HTML file.
-Same findings have been explained at the **Medium blog post** [here](My blog link once written)
+Same findings have been explained at the **Medium blog post** [here](https://medium.com/@tanmoybanerjee2003/classification-model-for-loan-default-risk-prediction-98c2cc7ef1bf)
 
 ## Licensing, Authors and Acknowledgements<a name="licensing"></a>
 The dataset used in the project has been provided by [Home Credit](http://www.homecredit.net/)
